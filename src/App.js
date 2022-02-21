@@ -1,15 +1,19 @@
 // import CC from './components/CC'
-import FC from './components/FC'
+// import FC from './components/FC'
+
 // import { data } from './data/student'
 // 導入一般js物件檔案
 // import students from './data/student.json'
 // 導入json會自動轉為js物件
 
+import Parent from './components/Parent'
+
 function App() {
   return (
     <>
       {/* <CC /> */}
-      <FC />
+      {/* <FC /> */}
+      <Parent />
     </>
   )
 }
