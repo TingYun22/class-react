@@ -2,6 +2,15 @@ import { useState } from 'react'
 
 function FC() {
   const [total, setTotal] = useState(0)
+
+  const checkAndOutput = (value) => {
+    if (value > 0) {
+      return <p>總數大於0</p>
+    } else {
+      return <p></p>
+    }
+  }
+
   return (
     <>
       <h1
@@ -11,6 +20,9 @@ function FC() {
       >
         {total}
       </h1>
+      {total > 0 ? <p>總數大於0</p> : ''}
+      {/* {checkAndOutput(total)} */}
+      {/* 兩種方法皆可 */}
     </>
   )
 }
