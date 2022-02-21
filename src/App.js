@@ -1,14 +1,18 @@
 // import CC from './components/CC'
-import FC from './components/FC'
+// import FC from './components/FC'
+import { data } from './data/student'
+// 導入一般js物件檔案
+import students from './data/student.json'
+// 導入json會自動轉為js物件
 
-function App() {
-  return (
-    <>
-      {/* <CC /> */}
-      <FC />
-    </>
-  )
-}
+// function App() {
+//   return (
+//     <>
+//       {/* <CC /> */}
+//       <FC />
+//     </>
+//   )
+// }
 
 // function App() {
 //   return (
@@ -40,4 +44,20 @@ function App() {
 //   )
 // }
 
+function App() {
+  const newData = data.map(function (v, i) {
+    return <li>{v.name}</li>
+  })
+  console.log('students:', students)
+  console.log(newData)
+  return (
+    <>
+      <ul>
+        {data.map(function (v, i) {
+          return <li key={i}>{v.name}</li>
+        })}
+      </ul>
+    </>
+  )
+}
 export default App
