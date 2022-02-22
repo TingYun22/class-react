@@ -10,13 +10,30 @@ import Menu from './homework1/Menu'
 // 導入json會自動轉為js物件
 
 // import Parent from './components/Parent'
+const oldData = (items) => {
+  const menuData = []
+  for (let i = 0; i < items.length; i++) {
+    menuData.push({
+      id: i + 1,
+      name: items[i],
+      active: false,
+    })
+  }
+  return menuData
+}
 
 function App() {
   const arr = ['首頁', '關於我們', '產品']
-  const [activeMenu, setActiveMenu] = useState('首頁')
+  const defaultData = oldData(arr)
+  const [menuItem, setMenuItem] = useState(defaultData)
   return (
     <>
-      <Menu arr={arr} activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
+      <Menu
+        arr={arr}
+        defaultData={defaultData}
+        menuItem={menuItem}
+        setMenuItem={setMenuItem}
+      />
     </>
   )
 }

@@ -1,19 +1,21 @@
 import './menu.css'
 function Menu(props) {
-  const { arr, activeMenu, setActiveMenu } = props
+  const { defaultData, menuItem, setMenuItem } = props
 
   return (
     <ul>
-      {arr.map((v, i) => {
+      {menuItem.map((v, i, ar) => {
         return (
           <li
             key={i}
             onClick={() => {
-              setActiveMenu(v)
+              const newMenuItems = [...defaultData]
+              newMenuItems[i].active = true
+              setMenuItem(newMenuItems)
             }}
           >
-            <a href="#/" className={activeMenu === v ? 'active' : ''}>
-              {v}
+            <a href="#/" className={v.active ? 'active' : ''}>
+              {v.name}
             </a>
           </li>
         )
