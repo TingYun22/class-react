@@ -13,14 +13,10 @@ import Menu from './homework1/Menu'
 
 function App() {
   const arr = ['首頁', '關於我們', '產品']
-  const [activeIndex, setActiveIndex] = useState(0)
+  const [activeMenu, setActiveMenu] = useState('首頁')
   return (
     <>
-      <Menu
-        arr={arr}
-        activeIndex={activeIndex}
-        setActiveIndex={setActiveIndex}
-      />
+      <Menu arr={arr} activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
     </>
   )
 }

@@ -1,6 +1,6 @@
 import './menu.css'
 function Menu(props) {
-  const { arr, activeIndex, setActiveIndex } = props
+  const { arr, activeMenu, setActiveMenu } = props
 
   return (
     <ul>
@@ -9,10 +9,10 @@ function Menu(props) {
           <li
             key={i}
             onClick={() => {
-              setActiveIndex(i)
+              setActiveMenu(v)
             }}
           >
-            <a href="#/" className={activeIndex === i ? 'active' : ''}>
+            <a href="#/" className={activeMenu === v ? 'active' : ''}>
               {v}
             </a>
           </li>
