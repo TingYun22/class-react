@@ -8,3 +8,8 @@ https://eddy-chang.gitbook.io/react-basic-zh-tw/
 
 flow嚴格檢查類型(有些缺點，如太慢等)
 現在以TypeScript
+
+三步驟原則:
+1. 從原本(物件/物件)的狀態拷貝出來
+2. 從拷貝出來的值進行修改
+3. 設定回原來的狀態值
