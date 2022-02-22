@@ -3,13 +3,19 @@ https://github.com/eyesofkids/mfee23-react/tree/main/%E6%95%99%E6%9D%90/0217/Rea
 https://eddy-chang.gitbook.io/react-basic-zh-tw/
 
 
-狀態: 使用者操作後不斷改變的資料值
-屬性: 靜態資料
+# 狀態: 使用者操作後不斷改變的資料值
+# 屬性: 靜態資料
 
 flow嚴格檢查類型(有些缺點，如太慢等)
 現在以TypeScript
 
-三步驟原則:
-1. 從原本(物件/物件)的狀態拷貝出來
-2. 從拷貝出來的值進行修改
-3. 設定回原來的狀態值
+# 更新狀態三步驟原則:
+  1. 從原本(物件/物件)的狀態拷貝出來
+  2. 從拷貝出來的值進行修改
+  3. 設定回原來的狀態值
+
+# Pure function 純函式 (React 元件同純函式，不能隨意更改 Props)
+  --> functional programming 函數式編程(數學函數概念)
+  1. same input===same output
+  2. 不依賴外部狀態的
+  3. 沒有副作用(Side Effects)
