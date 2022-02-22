@@ -1,6 +1,8 @@
 // import CC from './components/CC'
 // import FC from './components/FC'
-import SocialShare from './components/SocialShare'
+// import SocialShare from './components/SocialShare'
+import { useState } from 'react'
+import Menu from './homework1/Menu'
 
 // import { data } from './data/student'
 // 導入一般js物件檔案
@@ -10,12 +12,26 @@ import SocialShare from './components/SocialShare'
 // import Parent from './components/Parent'
 
 function App() {
+  const arr = ['首頁', '關於我們', '產品']
+  const [activeIndex, setActiveIndex] = useState(0)
   return (
     <>
-      <SocialShare url="https://getbootstrap.com/" round={true} />
+      <Menu
+        arr={arr}
+        activeIndex={activeIndex}
+        setActiveIndex={setActiveIndex}
+      />
     </>
   )
 }
+
+// function App() {
+//   return (
+//     <>
+//       <SocialShare url="https://getbootstrap.com/" round={true} />
+//     </>
+//   )
+// }
 
 // function App() {
 //   return (
