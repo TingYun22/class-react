@@ -1,22 +1,31 @@
 // import CC from './components/CC'
 // import FC from './components/FC'
+import SocialShare from './components/SocialShare'
 
 // import { data } from './data/student'
 // 導入一般js物件檔案
 // import students from './data/student.json'
 // 導入json會自動轉為js物件
 
-import Parent from './components/Parent'
+// import Parent from './components/Parent'
 
 function App() {
   return (
     <>
-      {/* <CC /> */}
-      {/* <FC /> */}
-      <Parent />
+      <SocialShare url="https://getbootstrap.com/" round={true} />
     </>
   )
 }
+
+// function App() {
+//   return (
+//     <>
+//       {/* <CC /> */}
+//       {/* <FC /> */}
+//       <Parent />
+//     </>
+//   )
+// }
 
 // function App() {
 //   return (
