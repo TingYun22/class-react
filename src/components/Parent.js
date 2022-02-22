@@ -1,13 +1,14 @@
-import Child from './Child'
+// import Child from './Child'
+import { useState } from 'react'
+import ChildA from './ChildA'
 
 function Parent() {
+  const [pData, setPData] = useState('Parent')
+
   return (
     <>
-      <Child text="hello" name="Adam" />
-      <br />
-      {/* <Child text={123} name={true} /> */}
-      <br />
-      <Child />
+      <h2>Parent</h2>
+      <ChildA pData={pData} />
     </>
   )
 }
