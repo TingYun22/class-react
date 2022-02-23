@@ -1,13 +1,17 @@
-import Child from './Child'
+// import Child from './Child'
+import { useState } from 'react'
+import ChildA from './ChildA'
+import ChildB from './ChildB'
 
 function Parent() {
+  const [data, setData] = useState('')
+  // 給ChildB回傳資料用的狀態，透過callback function傳給Parent
   return (
     <>
-      <Child text="hello" name="Adam" />
-      <br />
-      {/* <Child text={123} name={true} /> */}
-      <br />
-      <Child />
+      <h2>Parent</h2>
+      <ChildB setData={setData} />
+      <ChildA data={data} />
+      {/* 來自另一子女元件的資料 */}
     </>
   )
 }
