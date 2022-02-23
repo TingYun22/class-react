@@ -1,105 +1,148 @@
-// import CC from './components/CC'
-// import FC from './components/FC'
-// import SocialShare from './components/SocialShare'
-import { useState } from 'react'
-import Menu from './homework1/Menu'
+// import { useState } from 'react'
+import './App.css'
 
 // import { data } from './data/student'
 // 導入一般js物件檔案
 // import students from './data/student.json'
 // 導入json會自動轉為js物件
 
-// import Parent from './components/Parent'
-const oldData = (items) => {
-  const menuData = []
-  for (let i = 0; i < items.length; i++) {
-    menuData.push({
-      id: i + 1,
-      name: items[i],
-      active: false,
-    })
-  }
-  return menuData
-}
-
 function App() {
-  const arr = ['首頁', '關於我們', '產品']
-  const defaultData = oldData(arr)
-  const [menuItem, setMenuItem] = useState(defaultData)
   return (
     <>
-      <Menu
-        arr={arr}
-        defaultData={defaultData}
-        menuItem={menuItem}
-        setMenuItem={setMenuItem}
-      />
+      <div className="card">
+        <div className="row">
+          <div className="col-md-8 cart">
+            <div className="title">
+              <div className="row">
+                <div className="col">
+                  <h4>
+                    <b>Shopping Cart</b>
+                  </h4>
+                </div>
+                <div className="col align-self-center text-right text-muted">
+                  3 items
+                </div>
+              </div>
+            </div>
+            <div className="row border-top border-bottom">
+              <div className="row main align-items-center">
+                <div className="col-2">
+                  <img
+                    className="img-fluid"
+                    alt=""
+                    src="https://i.imgur.com/1GrakTl.jpg"
+                  />
+                </div>
+                <div className="col">
+                  <div className="row text-muted">Shirt</div>
+                  <div className="row">Cotton T-shirt</div>
+                </div>
+                <div className="col">
+                  <a href="#/">-</a>
+                  <a href="#/" className="border">
+                    1
+                  </a>
+                  <a href="#/">+</a>
+                </div>
+                <div className="col">
+                  &euro; 44.00 <span className="close">&#10005;</span>
+                </div>
+              </div>
+            </div>
+            <div className="row">
+              <div className="row main align-items-center">
+                <div className="col-2">
+                  <img
+                    className="img-fluid"
+                    alt=""
+                    src="https://i.imgur.com/ba3tvGm.jpg"
+                  />
+                </div>
+                <div className="col">
+                  <div className="row text-muted">Shirt</div>
+                  <div className="row">Cotton T-shirt</div>
+                </div>
+                <div className="col">
+                  <a href="#/">-</a>
+                  <a href="#/" className="border">
+                    1
+                  </a>
+                  <a href="#/">+</a>
+                </div>
+                <div className="col">
+                  &euro; 44.00 <span className="close">&#10005;</span>
+                </div>
+              </div>
+            </div>
+            <div className="row border-top border-bottom">
+              <div className="row main align-items-center">
+                <div className="col-2">
+                  <img
+                    className="img-fluid"
+                    alt=""
+                    src="https://i.imgur.com/pHQ3xT3.jpg"
+                  />
+                </div>
+                <div className="col">
+                  <div className="row text-muted">Shirt</div>
+                  <div className="row">Cotton T-shirt</div>
+                </div>
+                <div className="col">
+                  <a href="#/">-</a>
+                  <a href="#/" className="border">
+                    1
+                  </a>
+                  <a href="#/">+</a>
+                </div>
+                <div className="col">
+                  &euro; 44.00 <span className="close">&#10005;</span>
+                </div>
+              </div>
+            </div>
+            <div className="back-to-shop">
+              <a href="#/">
+                {/* <span dangerouslySetInnerHTML={{ __html: '&leftarrow;' }} /> */}
+                <i class="fas fa-angle-left"></i>
+              </a>
+              <span className="text-muted">Back to shop</span>
+            </div>
+          </div>
+          <div className="col-md-4 summary">
+            <div>
+              <h5>
+                <b>Summary</b>
+              </h5>
+            </div>
+            <hr />
+            <div className="row">
+              <div className="col pl-0">ITEMS 3</div>
+              <div className="col text-right">&euro; 132.00</div>
+            </div>
+            <form>
+              <p>SHIPPING</p>
+              <select>
+                <option className="text-muted">
+                  Standard-Delivery- &euro;5.00
+                </option>
+              </select>
+              <p>GIVE CODE</p>
+              <input id="code" placeholder="Enter your code" />
+            </form>
+            <div
+              className="row"
+              style={{
+                borderTop: '1px solid rgba(0, 0, 0, 0.1)',
+                padding: '2vh 0',
+              }}
+            >
+              <div className="col">TOTAL PRICE</div>
+              <div className="col text-right">&euro; 137.00</div>
+            </div>
+            <button className="btn">CHECKOUT</button>
+          </div>
+        </div>
+      </div>
     </>
   )
 }
-
-// function App() {
-//   return (
-//     <>
-//       <SocialShare url="https://getbootstrap.com/" round={true} />
-//     </>
-//   )
-// }
-
-// function App() {
-//   return (
-//     <>
-//       {/* <CC /> */}
-//       {/* <FC /> */}
-//       <Parent />
-//     </>
-//   )
-// }
-
-// function App() {
-//   return (
-//     <>
-//       <h2>Number</h2>
-//       {120}
-//       {120 + 10}
-//       <h2>Boolean</h2>
-//       {true}
-//       {false}
-//       <h2>String</h2>
-//       {'你好!'}
-//       {'Hello~'}
-//       {/* {'ap' + 'ple'} */}
-//       <h2>Null / undefined</h2>
-//       {null}
-//       {undefined}
-//       <h2>Array</h2>
-//       {[1, 3, 5, 7, 'abc', null, undefined]}
-//       <h2>Object(error)</h2>
-//       {/* 不能直接嵌入jsx語法，會嚴重中斷錯誤 */}
-//       {/* {{ a: 1, b: 2 }} */}
-//       {new Date().toDateString()}
-//       <br /> {new Date().toLocaleDateString()}
-//       <h2>Function(warning)</h2>
-//       {/* 但可直接呼叫 */}
-//       {() => console.log(123)}
-//     </>
-//   )
-// }
-
-// function App() {
-//   const newData = data.map(function (v, i) {
-//     return <li>{v.name}</li>
-//   })
-//   console.log('students:', students)
-//   console.log(newData)
-//   return (
-//     <>
-//       <ul>
-//         {data.map(function (v, i) {
-//           return <li key={i}>{v.name}</li>
-//         })}
-//       </ul>
-//     </>
-//   )
-// }
 export default App
