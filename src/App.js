@@ -1,8 +1,5 @@
-import { useState } from 'react'
-import './App.css'
-
-import OrderList from './components/OrderList'
-import Summary from './components/Summary'
+import React, { useState } from 'react'
+// import './App.css'
 
 const products = [
   {
@@ -21,23 +18,82 @@ const products = [
   },
   {
     id: 3,
-    name: '黑色 T-shirt',
+    name: '灰色 T-shirt',
     categroy: 'Shirt',
-    image: 'https://i.imgur.com/pHQ3xT3.jpg',
-    price: 450,
+    image: 'https://i.imgur.com/ba3tvGm.jpg',
+    price: 100,
   },
 ]
 
+const init = (arr) => {
+  const newArr = []
+  for (let i = 0; i < arr.length; i++) {
+    newArr.push(1)
+  }
+  return newArr
+}
 function App() {
-  const [count, setCount] = useState(1)
-  // + - 計算
+  const [counts, setCounts] = useState(init(products))
+  // 設定初始值
+
+  const setCount = (newCount, i) => {
+    // 拷貝原陣列
+    const newCounts = [...counts]
+    // 拷貝後的陣列上修改
+    newCounts[i] = newCount
+    // 設定回原狀態
+    setCounts(newCounts)
+  }
+
+  // 數量
+  const totalNumber = () => {
+    let tNumber = 0
+    for (let i = 0; i < counts.length; i++) {
+      tNumber += counts[i]
+    }
+    return tNumber
+  }
+  // 總價
+  const totalPrice = () => {
+    let tPrice = 0
+    for (let i = 0; i < counts.length; i++) {
+      tPrice += counts[i] * products[i].price
+    }
+    return tPrice
+  }
+
   return (
-    <div className="card">
-      <div className="row">
-        <OrderList products={products} count={count} setCount={setCount} />
-        <Summary totalNumber={count} totalPrice={count * products[0].price} />
-      </div>
-    </div>
+    <>
+      <h2>總數量：{totalNumber()}</h2>
+      <h2>總價{totalPrice()}：</h2>
+      <hr />
+      {products.map((v, i) => {
+        return (
+          <React.Fragment key={v.id}>
+            <h2>
+              商品{v.id}:{v.name}/{v.price}
+            </h2>
+            <button
+              onClick={() => {
+                setCount(counts[i] + 1, i)
+              }}
+            >
+              +
+            </button>
+            <p>{counts[i]}</p>
+            <button
+              onClick={() => {
+                if (counts[i] > 1) {
+                  setCount(counts[i] - 1, i)
+                }
+              }}
+            >
+              -
+            </button>
+          </React.Fragment>
+        )
+      })}
+    </>
   )
 }
 export default App
