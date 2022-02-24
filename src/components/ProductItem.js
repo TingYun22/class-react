@@ -1,5 +1,6 @@
+import React from 'react'
 function ProductItem(props) {
-  const { id, name, categroy, image, price, count, setCount } = props
+  const { name, categroy, image, price, count, setCount } = props
 
   //   {
   //       id:1,

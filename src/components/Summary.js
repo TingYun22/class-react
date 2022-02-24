@@ -1,3 +1,4 @@
+import React from 'react'
 function Summary(props) {
   const { totalNumber, totalPrice } = props
   return (

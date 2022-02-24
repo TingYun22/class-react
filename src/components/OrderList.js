@@ -1,3 +1,4 @@
+import React from 'react'
 import ProductItem from './ProductItem'
 
 function OrderList(props) {
@@ -26,8 +27,14 @@ function OrderList(props) {
             categroy={categroy}
             image={image}
             price={price}
-            count={count}
-            setCount={setCount}
+            count={count[i]}
+            setCount={(newCount) => {
+              const newCounts = [...count]
+              // 拷貝後的陣列上修改
+              newCounts[i] = newCount < 1 ? 1 : newCount
+              // 設定回原狀態
+              setCount(newCounts)
+            }}
           />
         )
       })}
