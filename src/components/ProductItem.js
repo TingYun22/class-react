@@ -1,6 +1,6 @@
 import React from 'react'
 function ProductItem(props) {
-  const { name, categroy, image, price, count, setCount } = props
+  const { name, categroy, image, price, count, setCount, handleDelete } = props
 
   //   {
   //       id:1,
@@ -42,7 +42,10 @@ function ProductItem(props) {
           </a>
         </div>
         <div className="col">
-          ${price} <span className="close">&#10005;</span>
+          ${price}{' '}
+          <span className="close" onClick={handleDelete}>
+            &#10005;
+          </span>
         </div>
       </div>
     </div>

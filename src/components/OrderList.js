@@ -2,7 +2,25 @@ import React from 'react'
 import ProductItem from './ProductItem'
 
 function OrderList(props) {
-  const { products, count, setCount } = props
+  const { productsInOrder, setProductInOrder } = props
+
+  const setCount = (newCount, i) => {
+    // 從原陣列拷貝
+    const newProductsInOrder = [...productsInOrder]
+    newProductsInOrder[i].count = newCount < 1 ? 1 : newCount
+    // 設定回原狀態
+    setProductInOrder(newProductsInOrder)
+  }
+
+  const handleDelete = (id) => {
+    // 從原陣列拷貝、處理
+    const newProductInOrder = [...productsInOrder].filter((v, i) => {
+      return v.id !== id
+    })
+    // 設定回原陣列
+    setProductInOrder(newProductInOrder)
+  }
+
   return (
     <div className="col-md-8 cart">
       <div className="title">
@@ -13,27 +31,25 @@ function OrderList(props) {
             </h4>
           </div>
           <div className="col align-self-center text-right text-muted">
-            3種商品項目
+            {productsInOrder.length}種商品項目
           </div>
         </div>
       </div>
-      {products.map((product, i) => {
-        const { id, name, categroy, image, price } = product
+
+      {productsInOrder.map((v, i) => {
         return (
           <ProductItem
-            key={id}
-            id={id}
-            name={name}
-            categroy={categroy}
-            image={image}
-            price={price}
-            count={count[i]}
+            key={v.id}
+            name={v.name}
+            categroy={v.categroy}
+            image={v.image}
+            price={v.price}
+            count={v.count}
+            handleDelete={() => {
+              handleDelete(v.id)
+            }}
             setCount={(newCount) => {
-              const newCounts = [...count]
-              // 拷貝後的陣列上修改
-              newCounts[i] = newCount < 1 ? 1 : newCount
-              // 設定回原狀態
-              setCount(newCounts)
+              setCount(newCount, i)
             }}
           />
         )

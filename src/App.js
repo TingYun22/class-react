@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 
 import OrderList from './components/OrderList'
+// import ProductItem from './components/ProductItem'
 import Summary from './components/Summary'
 
 const products = [
@@ -27,23 +28,40 @@ const products = [
     price: 450,
   },
 ]
-const init = (arr) => {
-  const newArr = []
-  for (let i = 0; i < arr.length; i++) {
-    newArr.push(1)
+// 商品的數量初始化
+// const init = (arr) => {
+//   const newArr = []
+//   for (let i = 0; i < arr.length; i++) {
+//     newArr.push(1)
+//   }
+//   return newArr
+// }
+
+const productinit = (products) => {
+  const arr = []
+  for (let i = 0; i < products.length; i++) {
+    arr.push({ ...products[i], count: 1 })
   }
-  return newArr
+  return arr
 }
+
+// console.log(productinit(products))
 function App() {
-  const [count, setCount] = useState(init(products))
+  // const [count, setCount] = useState(init(prodproductinitucts))
   // + - 計算
+
+  // 初始各項目產品數量的id
+  const [productsInOrder, setProductInOrder] = useState(productinit(products))
+
+  // 運費
+  const [shoppingFree, setShoppingFree] = useState(0)
 
   // 計算商品數量
   const totalNumber = () => {
     let totalCount = 0
 
-    for (let i = 0; i < count.length; i++) {
-      totalCount += count[i]
+    for (let i = 0; i < productsInOrder.length; i++) {
+      totalCount += productsInOrder[i].count
     }
 
     return totalCount
@@ -52,18 +70,35 @@ function App() {
   const totalPrice = () => {
     let sum = 0
 
-    for (let i = 0; i < products.length; i++) {
-      sum += count[i] * products[i].price
+    for (let i = 0; i < productsInOrder.length; i++) {
+      sum += productsInOrder[i].count * productsInOrder[i].price
     }
 
     return sum
+  }
+  const total = () => {
+    let sum = 0
+
+    for (let i = 0; i < productsInOrder.length; i++) {
+      sum += productsInOrder[i].count * productsInOrder[i].price
+    }
+
+    return shoppingFree ? sum + shoppingFree : 0
   }
 
   return (
     <div className="card">
       <div className="row">
-        <OrderList products={products} count={count} setCount={setCount} />
-        <Summary totalNumber={totalNumber()} totalPrice={totalPrice()} />
+        <OrderList
+          productsInOrder={productsInOrder}
+          setProductInOrder={setProductInOrder}
+        />
+        <Summary
+          setShoppingFree={setShoppingFree}
+          totalNumber={totalNumber()}
+          totalPrice={totalPrice()}
+          total={total()}
+        />
       </div>
     </div>
   )
