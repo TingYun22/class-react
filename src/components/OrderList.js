@@ -12,6 +12,7 @@ function OrderList(props) {
     setProductInOrder(newProductsInOrder)
   }
 
+  // 刪除產品項目
   const handleDelete = (id) => {
     // 從原陣列拷貝、處理
     const newProductInOrder = [...productsInOrder].filter((v, i) => {

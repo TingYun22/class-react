@@ -2,7 +2,9 @@ import React, { useState } from 'react'
 function Summary(props) {
   const { totalNumber, totalPrice, total, setShoppingFree } = props
 
+  // 運費選擇
   const [selectedValue, setSelectedValue] = useState('')
+
   return (
     <div className="col-md-4 summary">
       <div>

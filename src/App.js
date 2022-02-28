@@ -50,7 +50,7 @@ function App() {
   // const [count, setCount] = useState(init(prodproductinitucts))
   // + - 計算
 
-  // 初始各項目產品數量的id
+  // 初始各項目產品
   const [productsInOrder, setProductInOrder] = useState(productinit(products))
 
   // 運費
@@ -66,7 +66,8 @@ function App() {
 
     return totalCount
   }
-  // 總價
+
+  // 小計
   const totalPrice = () => {
     let sum = 0
 
@@ -76,6 +77,8 @@ function App() {
 
     return sum
   }
+
+  // 總價
   const total = () => {
     let sum = 0
 

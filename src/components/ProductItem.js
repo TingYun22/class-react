@@ -42,7 +42,7 @@ function ProductItem(props) {
           </a>
         </div>
         <div className="col">
-          ${price}{' '}
+          ${price}
           <span className="close" onClick={handleDelete}>
             &#10005;
           </span>
